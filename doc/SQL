@@ -1,0 +1,54 @@
+SQL
+
+>>>1. Create table
+create table postal_department (id int not null primary key, index int not null, name varchar(20) not null, adds varchar(100) not null);
+
+>>>2. Create table
+create table postal_departure (id int not null primary key, id_type int not null, index_recipient int not null, name_recipient varchar(20) not null, adds_recipient varchar(100) not null);
+
+>>>3. Create table
+create table departure_manager (id int not null primary key, name varchar(50), id_postal_department int);
+
+>>>4. Create table
+create table actions_departure (id int not null primary key, id_postal_departure int not null, id_action int not null, date_time timestamp DEFAULT CURRENT_TIMESTAMP);
+
+>>>5. Create table
+create table actions (id int not null primary key, action varchar(20) not null);
+
+>>>6. Add foreign key
+ALTER TABLE departure_manager ADD FOREIGN KEY (id_postal_department) REFERENCES postal_department (id) ON DELETE SET NULL;
+
+>>>7. Add foreign key
+ALTER TABLE actions_departure ADD FOREIGN KEY (id_postal_departure) REFERENCES postal_departure (id) ON DELETE CASCADE;
+
+>>>8. Add foreign key
+ALTER TABLE actions_departure ADD FOREIGN KEY (id_action) REFERENCES actions (id);
+
+>>>9. Add constraint
+ALTER TABLE postal_department ADD CONSTRAINT indexchk CHECK (index > 0);
+
+>>>10. Add constraint
+ALTER TABLE postal_departure ADD CONSTRAINT indexchk CHECK (index_recipient > 0);
+
+>>>11. Create table
+create table types (id int not null primary key, type varchar(20) not null);
+
+>>>12. Add foreign key
+ALTER TABLE postal_departure ADD FOREIGN KEY (id_type) REFERENCES types (id);
+
+>>>13. Add unique key
+CREATE UNIQUE INDEX index_key ON postal_department (index);
+
+>>>14. Add unique key
+CREATE UNIQUE INDEX type_key ON types (type);
+
+>>>15. Add unique key
+CREATE UNIQUE INDEX action_key ON actions (action);
+
+>>>16.
+ALTER TABLE actions_departure ADD COLUMN id_postal_department int;
+
+>>>17.
+ALTER TABLE actions_departure ADD FOREIGN KEY (id_postal_department) REFERENCES postal_department (id);
+
+>>>18.

@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+        "http://castor.org/mapping.dtd">
+
+<mapping>
+
+    <class name="team.mediasoft.probation.controllers.converter.requests.RegistrationActionRequest">
+
+        <map-to xml="registrationAction" />
+
+        <field name="action" type="string">
+            <bind-xml name="action" node="element" />
+        </field>
+
+        <field name="idPostalDeparture" type="string">
+            <bind-xml name="idDeparture" node="element" />
+        </field>
+
+        <field name="indexPostalDepartment" type="string">
+            <bind-xml name="indexOffice" node="element" />
+        </field>
+
+    </class>
+
+    <class name="team.mediasoft.probation.controllers.converter.requests.AdditionNewDepartureRequest">
+
+        <map-to xml="addDeparture" />
+
+        <field name="type" type="string">
+            <bind-xml name="type" node="element" />
+        </field>
+
+        <field name="index" type="string">
+            <bind-xml name="index" node="element" />
+        </field>
+
+        <field name="name" type="string">
+            <bind-xml name="name" node="element" />
+        </field>
+
+        <field name="address" type="string">
+            <bind-xml name="address" node="element" />
+        </field>
+
+        <field name="indexPostalDepartment" type="string">
+            <bind-xml name="indexPostalOffice" node="element" />
+        </field>
+
+    </class>
+
+</mapping>

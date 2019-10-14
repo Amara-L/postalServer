@@ -1,0 +1,10 @@
+/out/
+/target/
+/doc/SOAPUI/JSONResponse example/
+/src/test/java/team/mediasoft/probation/postalserver/testresourse/
+/src/main/webapp/WEB-INF/views/
+/src/main/java/team/mediasoft/probation/postalserver/txtfiles/
+/src/main/java/team/mediasoft/probation/postalserver/xmlfiles/
+/PostalServer2.iml
+/.idea
+package-info.java

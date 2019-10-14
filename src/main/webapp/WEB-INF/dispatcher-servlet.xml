@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+    <mvc:annotation-driven/>
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+
+    <context:component-scan base-package="team.mediasoft.probation.controllers" />
+    <context:component-scan base-package="team.mediasoft.probation.services" />
+
+    <bean id="marshallerXML" class="org.springframework.oxm.castor.CastorMarshaller" >
+        <property name="mappingLocation" value="classpath:mapping.xml" />
+    </bean>
+
+    <bean id="unmarshallerXML" class="org.springframework.oxm.castor.CastorMarshaller" >
+        <property name="mappingLocation" value="classpath:mappingRequest.xml" />
+    </bean>
+
+    <bean id="converter" class="team.mediasoft.probation.controllers.converter.xml.ConverterXml">
+    </bean>
+
+    <!--<bean id="converter" class="team.mediasoft.probation.controllers.converter.json.ConverterJson"/>-->
+
+    <bean id="response" class="team.mediasoft.probation.controllers.converter.Response" scope="prototype"/>
+
+    <bean id="result" class="team.mediasoft.probation.controllers.converter.Result" scope="prototype"/>
+
+    <bean id="createdError" class="team.mediasoft.probation.controllers.converter.CreatedResponseError"/>
+
+    <context:annotation-config/>
+
+</beans>

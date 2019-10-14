@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+        "http://castor.org/mapping.dtd">
+
+<mapping>
+
+    <class name="team.mediasoft.probation.controllers.converter.Result">
+
+        <map-to xml="result" />
+        <field name="status" type="java.lang.Boolean">
+            <bind-xml name="status" node="element" />
+        </field>
+
+        <field name="message" type="string">
+            <bind-xml name="message" node="element" />
+        </field>
+
+    </class>
+
+    <class name="team.mediasoft.probation.services.entity.PostalDepartureEntity">
+
+        <map-to xml="data-result" />
+
+        <field name="id" type="integer">
+            <bind-xml name="id" node="element" />
+        </field>
+
+        <field name="adressRecipient" type="string">
+            <bind-xml name="adressRecipient" node="element" />
+        </field>
+
+        <field name="indexRecipient" type="string">
+            <bind-xml name="indexRecipient" node="element" />
+        </field>
+
+        <field name="nameRecipient" type="string">
+            <bind-xml name="nameRecipient" node="element" />
+        </field>
+
+        <field name="type" type="string">
+            <bind-xml name="type" node="element" />
+        </field>
+
+        <field name="actionsDeparture"
+               type="team.mediasoft.probation.services.entity.ActionDepartureEntity"
+               collection="collection">
+            <bind-xml name="actionsDeparture" node="element" />
+        </field>
+
+    </class>
+
+    <class name="team.mediasoft.probation.services.entity.ActionDepartureEntity">
+
+        <field name="actionString" type="string">
+            <bind-xml name="actionString" node="element" />
+        </field>
+
+        <field name="timeAction" type="java.util.Date">
+            <bind-xml name="timeAction" node="element" />
+        </field>
+
+        <field name="postalDepartment"
+               type="team.mediasoft.probation.services.entity.PostalDepartmentEntity">
+            <bind-xml name="postalDepartment" node="element" />
+        </field>
+
+    </class>
+
+    <class name="team.mediasoft.probation.services.entity.PostalDepartmentEntity">
+
+        <field name="indexPostDepartment" type="string">
+            <bind-xml name="indexPostDepartment" node="element" />
+        </field>
+
+        <field name="namePostDepartment" type="string">
+            <bind-xml name="namePostDepartment" node="element" />
+        </field>
+
+        <field name="adressPostDepartment" type="string">
+            <bind-xml name="adressPostDepartment" node="element" />
+        </field>
+
+    </class>
+
+</mapping>
